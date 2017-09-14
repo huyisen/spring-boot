@@ -1,0 +1,32 @@
+#配置文件环境配置
+spring:
+  profiles:
+    active: dev
+    
+  #jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Chongqing
+
+---
+spring:
+  profiles: dev
+server:
+  port: 8888 # server
+  connection-timeout: 180000 # Time in milliseconds that connectors will wait for another HTTP request before closing the connection.
+  max-connections: 1000 # Maximum number of connections that the server will accept and process at any given time.
+  max-threads: 2 # Maximum amount of worker threads.
+  min-spare-threads: 1 # Minimum amount of worker threads.
+
+---
+spring:
+  profiles: test
+server:
+  port: 9999
+
+---
+spring:
+  profiles: prod
+server:
+  port: 6666
+
